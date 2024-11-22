@@ -459,58 +459,49 @@ There is possible to use 25 mm (width) tie-belt on the enclosure to mount it on 
 
               <div class="faq-item faq-active">
                 <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Do I need webhosting to run Watmonitor by myself?</h3>
+                <h3>What is power consumption of the system?</h3>
                 <div class="faq-content">
-                  <p>Yes, you will need local or internet webhosting. To execute PHP scripts of Watmonitor, you will need to have Apache / NGINX installed on your server. <strong>Make sure, you are using PHP in version 5.6 up to 7. For PHP version 8, system is NOT compatible.</strong></p>
+                  <p>Based on actual state (if LED diodes are on, number of RFID tags attached) from like 40 mAh - 60 mAh @ 5V</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
               <div class="faq-item">
                 <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Is it hard to configure the webapplication to make it working?</h3>
+                <h3>Can I power it up via powerbank?</h3>
                 <div class="faq-content">
-                  <p>A step-by-step guide in .pdf format simplifies setup for all users. It covers importing the .sql file into MySQL, configuring connect.php with database credentials, HTTP Auth data, and the device token.</p>
+                  <p>Yes, RFID DOMINATOR can be powered up from powerbank directly via its 5V output.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
               <div class="faq-item">
                 <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Will Watmonitor automatically generate source code for my hardware?</h3>
+                <h3>How can I upload the firmware?</h3>
                 <div class="faq-content">
-                  <p>Watmonitor will automatically generate sketches for ESP32's WiFi or PHY Ethernet connection and supported ultrasonic sensors. It will automatically add MCU token into the sketch, it will calculate trace to the target PHP file and will automatically add your domain (for instance localhost will not work! You need to have it opened using IP protocol / domain name).
-Root CA certificate (in case of HTTPS connection) is NOT changed, so you will need to keep an eye on that and add it yourself into the sketch for ESP32.</p>
+                  <p>Same principle for DEMO or FINAL firmware. You will have .hex file that you will upload into Arduino Nano using XLoader tool. If you have Arduino Nano with Old Bootloader, your upload speed needs to be set to 57600 baud/s, with New Bootloader it is 11500 baud/s.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
               <div class="faq-item">
                 <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Are there more source codes available except these directly in the Watmonitor app?</h3>
+                <h3>How to copy existing firmware?</h3>
                 <div class="faq-content">
-                  <p>There are different source codes on Github compatible with Watmonitor interface. Created for Arduino + Ethernet (ENC or Wiznet series), ESP8266 or ESP32 and more transmission technologies such as LoRaWAN, Sigfox IoT. You can open them using button "Sensor node examples" on the top of this page.</p>
+                  <p>Same file you have received via e-mail and upload to the first unit, you will upload it to the next unit of RFID DOMINATOR. It will work the same way and will react on the same RFID wristbands, cards.</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
               <div class="faq-item">
                 <i class="faq-icon bi bi-question-circle"></i>
-                <h3>What language options are included in the Watmonitor webapp?</h3>
+                <h3>Can be team name changed?</h3>
                 <div class="faq-content">
-                  <p>Watmonitor webapp includes full language translations to English, German, Russian, Spanish, French and Slovak</p>
+                  <p>Not at the moment, but soon it will be possible, when AT commands extension will be finished. Team names need to have maximum 3 letters (it will be limited by the software).</p>
                 </div>
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
-              <div class="faq-item">
-                <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Can I log data into other system from Watmonitor?</h3>
-                <div class="faq-content">
-                  <p>Yes, there is JSON output provided from the web interface of Watmonitor that allows you to parse these data and use them in your system (Loxone, Grafana, Kibana, Domoticz, Node-RED, Home Assistant, Thingsboard...). Data provided from the system are the latest data of water level, water volume and time of record written into the database.</p>
-                </div>
-                <i class="faq-toggle bi bi-chevron-right"></i>
-              </div><!-- End Faq item-->
 
             </div>
 
@@ -534,7 +525,7 @@ Root CA certificate (in case of HTTPS connection) is NOT changed, so you will ne
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
           <a href="index.html" class="logo d-flex align-items-center">
-            <span class="sitename">Watmonitor by <img src="https://i.imgur.com/ibpLxAB.png" alt="Your IoT within reach"></span>
+            <span class="sitename">RFID DOMINATOR by <img src="https://i.imgur.com/ibpLxAB.png" alt="Your IoT within reach"></span>
           </a>
           <div class="footer-contact pt-3">
             <p>Poprad District (Prešov Region)</p>
@@ -546,7 +537,7 @@ Root CA certificate (in case of HTTPS connection) is NOT changed, so you will ne
             <a href="https://www.youtube.com/@Your-IoT-w4b"><i class="bi bi-youtube"></i></a>
           </div>
         </div>
-
+<!---
         <div class="col-lg-2 col-md-3 footer-links">
           <h4>Useful Links</h4>
           <ul>
@@ -570,7 +561,7 @@ Root CA certificate (in case of HTTPS connection) is NOT changed, so you will ne
           </ul>
         </div>
 
-
+--->
       </div>
     </div>
 

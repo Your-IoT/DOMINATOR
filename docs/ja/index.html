@@ -1,21 +1,49 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>RFID DOMINATOR – エアソフトガン、ペイントボール、スポーツ用のドミネーションストップウォッチ</title>
-<meta name="keywords" content="RFID 支配ストップウォッチ、RFID ドミネーター、エアソフト ゲーム ストップウォッチ、ペイントボール支配デバイス、RFID スポーツ ストップウォッチ、Arduino Nano RFID ストップウォッチ、DIY 支配ストップウォッチ キット、RFID ゲーム コントローラー、RFID ポイント ストップウォッチ、MFRC522 ストップウォッチ、競技スポーツ タイミング デバイス、支配ポイント ストップウォッチ">
-<meta name="description" content="RFID DOMINATOR は、エアソフト、ペイントボール、競技スポーツに最適な究極のドミネーション ストップウォッチです。この Arduino Nano 搭載デバイスは、RFID カード、リストバンド、またはキーチェーンを使用して、ポイント占有時間の合計を追跡します。チームや審判に最適で、時間の一時停止、リセット、技術愛好家向けの DIY キット オプションなどの機能が含まれています。独自のデバイスを作成するか、すぐに使用できるデバイスを購入して、比類のないゲーム体験をお楽しみください。">
+<title>RFID DOMINATOR – エアソフト、ペイントボール、競技スポーツ用のドミネーションストップウォッチ</title>
+<meta name="keywords" content="RFID DOMINATOR、RFID ドミネーション タイマー、RFID ドミネーション ストップウォッチ、ドミネーション ストップウォッチ、エアソフト タイマー、ペイントボール タイマー、RFID テクノロジー、モジュラー設計、Arduino RFID、RFID リーダー、オープン ソース ハードウェア、RFID タイマー、競技スポーツ テクノロジー、イベント管理デバイス、エアソフト 機器、ペイントボール競技ツール、モジュラー エレクトロニクス、クローン可能なファームウェア、RFID システム、Arduino Nano、MFRC522 RFID リーダー、LCD2004A ディスプレイ、カスタマイズ可能なファームウェア、オープン ソース ハードウェア互換、RFID リストバンド、イベント タイミング デバイス、エアソフト フィールド ツール、ペイントボール イベント管理、モジュラー RFID デバイス、RFID タグ、エアソフトおよびペイントボール ギア、競技ゲームプレイ ストップウォッチ">
+<meta name="description" content="RFID DOMINATOR は、エアソフトガン、ペイントボール、スポーツ用の Arduino Nano 搭載ストップウォッチで、RFID でポイント時間を追跡します。チーム、審判、または DIY キットに最適です。">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://your-iot.github.io/DOMINATOR/ja/">
 <link rel="sitemap" type="application/xml" title="Sitemap" href="../../sitemap.xml">
 
+<meta property="og:title" content="RFID DOMINATOR – エアソフト、ペイントボール、競技スポーツ用のドミネーションストップウォッチ">
+<meta property="og:description" content="RFID DOMINATOR は、エアソフトガン、ペイントボール、スポーツ用の Arduino Nano 搭載ストップウォッチで、RFID でポイント時間を追跡します。チーム、審判、または DIY キットに最適です。">
+<meta property="og:image" content="https://i.imgur.com/4Rf8hz4.png">
+<meta property="og:url" content="https://your-iot.github.io/DOMINATOR/">
+<meta property="og:type" content="website">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="RFID DOMINATOR – エアソフト、ペイントボール、競技スポーツ用のドミネーションストップウォッチ">
+<meta name="twitter:description" content="RFID DOMINATOR は、エアソフトガン、ペイントボール、スポーツ用の Arduino Nano 搭載ストップウォッチで、RFID でポイント時間を追跡します。チーム、審判、または DIY キットに最適です。">
+<meta name="twitter:image" content="https://i.imgur.com/4Rf8hz4.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "RFID DOMINATOR",
+  "description": "エアソフトガン、ペイントボールイベント用の RFID 対応ストップウォッチ",
+  "url": "https://your-iot.github.io/DOMINATOR/ja/",
+  "applicationCategory": "Utility",
+  "operatingSystem": "Windows, macOS, Android, iOS",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
 
 
   <!-- Favicons -->
-  <link href="../assets/img/favicon.png" rel="icon">
-  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+  <link href="assets/img/favicon.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -23,14 +51,14 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
 
   <!-- Main CSS File -->
-  <link href="../assets/css/main.css" rel="stylesheet">
+  <link href="assets/css/main.css" rel="stylesheet">
       <style>
         #cookie-bar {
             position: fixed;
@@ -64,10 +92,10 @@
 
 <body class="index-page">
     <div id="cookie-bar" style="display: none;">
-        <span>This website uses cookies to enhance your experience, analyze traffic. For more information, read our <a href="/cookie-policy.html" target="_blank">Cookie Policy</a>. Do you agree?</span>
+        <span>このウェブサイトは、お客様の体験を向上させ、トラフィックを分析するためにクッキーを使用しています。詳細については、 <a href="/cookie-policy.html" target="_blank">クッキーポリシー</a>.同意しますか？</span>
         <div>
-            <button class="agree" onclick="acceptCookies()">Agree</button>
-            <button class="deny" onclick="denyCookies()">Deny</button>
+            <button class="agree" onclick="acceptCookies()">同意する</button>
+            <button class="deny" onclick="denyCookies()">拒否</button>
         </div>
     </div>
 
@@ -113,18 +141,20 @@
 
       <a href="index.html" class="logo d-flex align-items-center">
         <!-- Uncomment the line below if you also wish to use an image logo -->
-        <h1 class="sitename">RFID DOMINATOR by <img src="https://i.imgur.com/ibpLxAB.png" alt="Your IoT within reach"> </h1>
+        <h1 class="sitename">RFIDドミネーター <img src="https://i.imgur.com/ibpLxAB.png" alt="IoTが手の届くところへ"> </h1>
       </a>
 
       <nav id="navmenu" class="navmenu">
         <ul>
-          <li><a href="#hero" class="active">Home</a></li>
-          <li><a href="#about">About</a></li>
-          <li><a href="#features">Features</a></li>
-          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#hero" class="active">家</a></li>
+          <li><a href="#about">について</a></li>
+          <li><a href="#features">特徴</a></li>
+          <li><a href="#gallery">ギャラリー</a></li>
+<!---
 <a href="ja/"><img src="https://i.imgur.com/eKWiNXh.png" alt="Japanese flag.png, 2,2kB" title="Japanese" height="32" width="32"></a>
 <a href="ru/"><img src="https://i.imgur.com/eKWiNXh.png" alt="Russian flag.png, 2,2kB" title="Russian" height="32" width="32"></a>
 <a href="ko/"><img src="https://i.imgur.com/eKWiNXh.png" alt="Korean flag.png, 2,2kB" title="Korean" height="32" width="32"></a>
+     ---!>
         </ul>
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
@@ -136,7 +166,7 @@
 
     <!-- Hero Section -->
     <section id="hero" class="hero section dark-background">
-      <img src="assets/img/hero-bg-2.jpg" alt="" class="hero-bg">
+      <img src="../assets/img/hero-bg-2.jpg" alt="" class="hero-bg">
 
       <div class="container">
         <div class="row gy-4 justify-content-between">
@@ -146,12 +176,12 @@
           </div>
 
           <div class="col-lg-6  d-flex flex-column justify-content-center" data-aos="fade-in">
-            <h1><span>RFID DOMINATOR</span>: The Ultimate Domination Stopwatch for Airsoft, Paintball</span></h1>
+            <h2><span>RFID DOMINATOR</span>: エアソフト、ペイントボール用の究極のドミネーション ストップウォッチ</span></h2>
             <div class="d-flex">
-              <a href="https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2Fmartinius96%2FAirsoft-DOMINATOR-RFID%2Ftree%2Fmaster%2Ffirmware" class="btn btn-primary rounded-pill">DEMO Firmware</a>
-              <a href="https://docs.google.com/spreadsheets/d/1EHpdJi8v84eJ-6ExEPT6JuPkxI9Tfbm8v85zGRFvJ1Q/edit?usp=sharing" class="btn btn-success rounded-pill">RFID UID Template</a>
-              <a href="https://docs.google.com/spreadsheets/d/1W8VZWUbunXa362EOkEo4UkfGkRCt8anQDj8j90m_AIg/edit?usp=sharing" class="btn btn-info rounded-pill">BOM file</a>
-              <a href="https://www.youtube.com/watch?v=RsKdmtI2ANQ" class="btn btn-danger rounded-pill">Watch YT video</a>
+              <a href="https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2Fmartinius96%2FAirsoft-DOMINATOR-RFID%2Ftree%2Fmaster%2Ffirmware" class="btn btn-primary rounded-pill">デモファームウェア</a>
+              <a href="https://docs.google.com/spreadsheets/d/1EHpdJi8v84eJ-6ExEPT6JuPkxI9Tfbm8v85zGRFvJ1Q/edit?usp=sharing" class="btn btn-success rounded-pill">RFID UID テンプレート</a>
+              <a href="https://docs.google.com/spreadsheets/d/1W8VZWUbunXa362EOkEo4UkfGkRCt8anQDj8j90m_AIg/edit?usp=sharing" class="btn btn-info rounded-pill">BOMファイル</a>
+              <a href="https://www.youtube.com/watch?v=RsKdmtI2ANQ" class="btn btn-danger rounded-pill">YTビデオを見る</a>
             </div>
           </div>
 
@@ -182,14 +212,24 @@
         <div class="row align-items-xl-center gy-5">
 
           <div class="col-xl-5 content">
-            <h2>About RFID DOMINATOR</h2>
-            <p style="text-align: justify;">
-The RFID DOMINATOR is a cutting-edge domination stopwatch designed for Airsoft, Paintball, and other competitive sports, adding a new level of strategy and excitement to your gameplay.
-This innovative device has onboard display, that tracks the total occupation time of a control point, making it an essential tool for organized events and team-based competitions. 
-Using RFID technology, players can occupy the point by simply tapping their RFID wristband or card to the device. 
-The stopwatch will beep, if there is changed active team on the point and time is counting for this team, until a player from the opposing team claims the point, or if referee pauses the time. 
-A referee can also reset the time, if needed, ensuring smooth and fair play gameplay experience.
-The device supports standard gameplay with 2 teams and offers the flexibility to include up to 4 teams in a single match. 
+            <h2>RFID DOMINATOR について – 競争的なゲームプレイを革新する</h2>
+<p style="text-align: justify;">
+    <strong>RFID DOMINATOR</strong> は、<strong>エアソフト</strong>、<strong>ペイントボール</strong>、その他の競技スポーツ向けに作られた最先端のドミネーション ストップウォッチで、あらゆる試合の戦略と関与を高めます。
+</p>
+<p style="text-align: justify;">
+この高度なデバイスには、コントロールポイントの合計占有時間を追跡する<strong>オンボードディスプレイ</strong>が搭載されており、組織的なイベントやチームベースの競技には欠かせないものとなっています。
+</p>
+<p style="text-align: justify;">
+    <strong>RFID テクノロジー</strong> により、プレーヤーはデバイス上で RFID リストバンドまたはカードをタップするだけで、簡単にコントロールを獲得できます。<strong>ストップウォッチがビープ音を鳴らして</strong>チームの変更を知らせ、対戦相手のプレーヤーがポイントを獲得するか、審判がゲームを一時停止するまで、タイマーはアクティブ チームのカウントを続けます。
+</p>
+<p style="text-align: justify;">
+審判員は必要に応じてタイマーをリセットすることもできるため、<strong>シームレスで公正なゲームプレイ体験</strong>が保証されます。
+</p>
+<p style="text-align: justify;">
+    多用途性を考慮して設計された RFID DOMINATOR は、<strong>2 チーム</strong> の標準試合をサポートし、1 回の競技で最大 <strong>4 チーム</strong> まで拡張できます。
+</p>
+<p style="text-align: justify;">
+    RFID DOMINATOR で競争力を高め、プレイ方法を再定義しましょう。
 </p>
           </div>
 
@@ -199,22 +239,22 @@ The device supports standard gameplay with 2 teams and offers the flexibility to
               <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
                 <div class="icon-box">
                   <i class="bi bi-collection-play"></i>
-                  <h3>Usage Scenarios</h3>
-                  <p style="text-align: justify;">Ideal for playgrounds, fields offering Airsoft / Paintball experience. Events such as LARP, MilSim, Scenario, Speedball, due the flash size that supports hundrets of RFID tags in a single application</p>
+                  <h3>使用シナリオ</h3>
+                  <p style="text-align: justify;">遊び場、エアソフト/ペイントボール体験を提供するフィールドに最適です。LARP、MilSim、シナリオ、スピードボールなどのイベントでは、1つのアプリケーションで数百のRFIDタグをサポートするフラッシュサイズが役立ちます。</p>
                 </div>
               </div> <!-- End Icon Box -->
 
               <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
                 <div class="icon-box">
                   <i class="bi bi-clipboard-check"></i>
-                  <h3>Supported hardware</h3>
-                  <p style="text-align: justify;">With RFID DOMINATOR 2.0 PCB, the following components are compatible</p>
-                  <li>Arduino Nano V3.0</li>
-                  <li>MFRC522 RFID-RC522 reader</li>
-                  <li>LCD 2004A with I2C converter</li>
-                  <li>Buzzer with 7.62 mm pitch</li>
-                  <li>5mm LED diodes THT</li>
-                  <li>Resistors THT</li>
+                  <h3>サポートされているハードウェア</h3>
+                  <p style="text-align: justify;">RFID DOMINATOR 2.0 PCBでは、以下のコンポーネントと互換性があります。</p>
+<li>Arduino Nano V3.0</li>
+ <li>MFRC522 RFID-RC522 リーダー</li>
+ <li>I2C コンバータを備えた LCD 2004A</li>
+ <li>7.62 mm ピッチのブザー</li>
+ <li>5mm LED ダイオード THT</li>
+ <li>抵抗 THT</li>
             <!---      <li>RFID wristbands, cards of standard 14443-A</li>
                   <li>10 mm base + 6 mm M3 thread Standoff Spacer Screws</li>
                   <li>6 mm M3 Countersunk Flat-Head Screws, nuts</li> --->
@@ -514,49 +554,63 @@ There is possible to use 25 mm (width) tie-belt on the enclosure to mount it on 
           <div class="col-lg-7 d-flex flex-column justify-content-center order-2 order-lg-1">
 
             <div class="content px-xl-5" data-aos="fade-up" data-aos-delay="100">
-              <h3><span>Frequently Asked </span><strong>Questions</strong></h3>
-              <p>
-                The most asked question from the community answered below
-              </p>
+<h3><span>Frequently Asked</span> <strong>Questions</strong></h3>
+<p>
+    Below are the most frequently asked questions from our community.
+</p>
             </div>
 
             <div class="faq-container px-xl-5" data-aos="fade-up" data-aos-delay="200">
 
               <div class="faq-item faq-active">
                 <i class="faq-icon bi bi-question-circle"></i>
-                <h3>What is energy consumption of the system?</h3>
-                <div class="faq-content">
-                  <p>Standardly near 40 mAh - 60 mAh @ 5V. In terms of power consumption, similar to 0.2 - 0.3 W. You  will be able to run this system with 2000 mAh source for 30 - 35 hours (depends on load on the system).</p>
-                </div>
+<h3>What Is the Energy Consumption of the System?</h3>
+<div class="faq-content">
+    <p>
+        The system typically consumes 40–60 mAh @ 5V, equivalent to 0.2–0.3 W. A 2000 mAh power source can run the system for 30–35 hours, depending on the load.
+    </p>
+</div>
+
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
               <div class="faq-item">
                 <i class="faq-icon bi bi-question-circle"></i>
-                <h3>Can I power it up via powerbank?</h3>
-                <div class="faq-content">
-                  <p>Yes, RFID DOMINATOR can be powered up from powerbank directly via its 5V output.</p>
-                </div>
+<h3>Can I Power It via Powerbank?</h3>
+<div class="faq-content">
+    <p>
+        Yes, the RFID DOMINATOR can be powered directly using a powerbank through its 5V output.
+    </p>
+</div>
+
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
               <div class="faq-item">
                 <i class="faq-icon bi bi-question-circle"></i>
-                <h3>How can I upload the firmware?</h3>
-                <div class="faq-content">
-                  <p>Same principle for DEMO or FINAL firmware. You will have .hex file compatible for your Arduino. Upload you can perform using XLoader tool. 
-If you have Arduino Nano with Old Bootloader, your upload speed needs to be set to 57600 baud/s, with New Bootloader it is 11500 baud/s. If software was uploaded successfully, you will receive print about that from XLoader.</p>
-                </div>
+<h3>How Can I Upload the Firmware?</h3>
+<div class="faq-content">
+    <p>
+        Whether it’s DEMO or FINAL firmware, use the provided .hex file compatible with Arduino. 
+        Upload it using the XLoader tool. For Arduino Nano with the Old Bootloader, set the speed to 57600 baud/s; for the New Bootloader, use 115200 baud/s. 
+        Successful uploads are confirmed by a message from XLoader.
+    </p>
+</div>
+
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 
               <div class="faq-item">
                 <i class="faq-icon bi bi-question-circle"></i>
-                <h3>How to copy existing firmware?</h3>
-                <div class="faq-content">
-                  <p>Same file you have received via e-mail and upload to the first unit, you will upload it to the next unit of RFID DOMINATOR. 
-It will work the same way and will react on the same RFID wristbands, cards. You are not limited in count of clones performed.</p>
-                </div>
+<h3>How to Copy Existing Firmware?</h3>
+<div class="faq-content">
+    <p>
+        Simply upload the same firmware file you received via email to your next RFID DOMINATOR unit. 
+        It will function identically and recognize the same RFID wristbands and cards. 
+        There’s no limit to the number of clones you can create.
+    </p>
+</div>
+
                 <i class="faq-toggle bi bi-chevron-right"></i>
               </div><!-- End Faq item-->
 

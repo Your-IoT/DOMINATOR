@@ -20,8 +20,7 @@ Ideal for playgrounds, fields offering Airsoft/Paintball experiences, and events
 
 ## Supported Hardware
 
-The RFID DOMINATOR 2.0 PCB is compatible with the following components:
-
+The RFID DOMINATOR 2.0 PCB is compatible with:
 - Arduino Nano V3.0
 - MFRC522 RFID-RC522 Reader
 - LCD2004A with I2C Converter
@@ -37,10 +36,7 @@ The RFID DOMINATOR 2.0 PCB is compatible with the following components:
 
 ## Support and Feedback
 
-For support or to provide feedback, please visit our [GitHub repository](https://github.com/your-iot/DOMINATOR) or contact us through our [website](https://your-iot.github.io/DOMINATOR/).
+For support or to provide feedback, please visit our [GitHub repository](https://github.com/your-iot/DOMINATOR)
 
-## License
-
-The RFID DOMINATOR is released under the [MIT License](https://opensource.org/licenses/MIT).
 
 Enhance your competitive edge and redefine the way you play with the RFID DOMINATOR!

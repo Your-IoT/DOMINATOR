@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Airsoft DOMINATOR - stoper z obsługą RFID</title>
+<meta name="keywords" content="RFID DOMINATOR, RFID Domination Timer, RFID Domination Stopwatch, stoper dominacji, timer Airsoft, timer Paintball, technologia RFID, modułowa konstrukcja, Arduino RFID, czytnik RFID, sprzęt typu open source, timer RFID, technologia sportów wyczynowych, urządzenie do zarządzania wydarzeniem, sprzęt Airsoft, narzędzia do zawodów Paintball, modułowa elektronika, klonowalne oprogramowanie układowe, system RFID, Arduino Nano, czytnik RFID MFRC522, wyświetlacz LCD2004A, konfigurowalne oprogramowanie układowe, kompatybilny sprzęt typu open source, opaska na nadgarstek RFID, urządzenie do pomiaru czasu wydarzenia, narzędzia terenowe Airsoft, zarządzanie wydarzeniem Paintball, modułowe urządzenia RFID, znaczniki RFID, sprzęt Airsoft i Paintball, stoper do rozgrywek wyczynowych">
+<meta name="description" content="RFID DOMINATOR: Arduino Nano stoper do airsoftu, paintballu i sportu. Mierzy czas punktowy za pomocą RFID. Idealny dla zespołów, wydarzeń, jako zestaw DIY!">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://your-iot.github.io/DOMINATOR/pl/">
+<link rel="sitemap" type="application/xml" title="Sitemap" href="../../sitemap.xml">
+
+<meta property="og:title" content="Airsoft DOMINATOR - stoper z obsługą RFID">
+<meta property="og:description" content="RFID DOMINATOR: Arduino Nano stoper do airsoftu, paintballu i sportu. Mierzy czas punktowy za pomocą RFID. Idealny dla zespołów, wydarzeń, jako zestaw DIY!">
+<meta property="og:image" content="https://i.imgur.com/4Rf8hz4.png">
+<meta property="og:url" content="https://your-iot.github.io/DOMINATOR/pl/">
+<meta property="og:type" content="website">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Airsoft DOMINATOR - stoper z obsługą RFID">
+<meta name="twitter:description" content="RFID DOMINATOR: Arduino Nano stoper do airsoftu, paintballu i sportu. Mierzy czas punktowy za pomocą RFID. Idealny dla zespołów, wydarzeń, jako zestaw DIY!">
+<meta name="twitter:image" content="https://i.imgur.com/4Rf8hz4.png">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "RFID DOMINATOR",
+  "description": "Stoper z włączoną technologią RFID do imprez Airsoft i Paintball",
+  "url": "https://your-iot.github.io/DOMINATOR/pl/",
+  "applicationCategory": "Utility",
+  "operatingSystem": "Windows, macOS, Android, iOS",
+  "offers": {
+    "@type": "Offer",
+    "price": "0.00",
+    "priceCurrency": "USD"
+  }
+}
+</script>
+
+
+
+  <!-- Favicons -->
+  <link href="../assets/img/favicon.png" rel="icon">
+  <link href="../assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="../assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="../assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="../assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="../assets/css/main.css" rel="stylesheet">
+      <style>
+        #cookie-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+        #cookie-bar button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+        }
+        #cookie-bar .agree {
+            background-color: #28a745;
+            color: white;
+        }
+        #cookie-bar .deny {
+            background-color: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+
+<body class="index-page">
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.html" class="logo d-flex align-items-center">
+        <!-- Uncomment the line below if you also wish to use an image logo -->
+        <h1 class="sitename">DOMINATOR RFID firmy <img src="https://i.imgur.com/ibpLxAB.png" alt="Twój IoT w zasięgu ręki"> </h1>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+<li><a href="#hero" class="active">Strona główna</a></li>
+<li><a href="#about">Informacje</a></li>
+<li><a href="#features">Funkcje</a></li>
+<li><a href="#gallery">Galeria</a></li>
+<a href="../"><img src="https://i.imgur.com/q5dsgvd.png" alt="England flag.png, 2,2kB" title="English" height="32" width="32"></a>
+<a href="../de"><img src="https://i.imgur.com/XyttCEe.png" alt="German flag.png, 2,2kB" title="Germanian" height="32" width="32"></a>
+<a href="../fr"><img src="https://i.imgur.com/vX7NaZ7.png" alt="French flag.png, 2,2kB" title="French" height="32" width="32"></a>
+<a href="../sk"><img src="https://i.imgur.com/eKWiNXh.png" alt="Slovak flag.png, 2,2kB" title="Slovakian" height="32" width="32"></a>
+<a href="../ru"><img src="https://i.imgur.com/tsafjHK.png" alt="Russia flag.png, 2,2kB" title="Russian" height="32" width="32"></a>
+<a href="../it"><img src="https://i.imgur.com/BXTLjVC.png" alt="Italy flag.png, 2,2kB" title="Italian" height="32" width="32"></a>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+    </div>
+  </header>
+
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+      <img src="../assets/img/hero-bg-2.jpg" alt="" class="hero-bg">
+
+      <div class="container">
+        <div class="row gy-4 justify-content-between">
+          <div class="col-lg-4 order-lg-last hero-img" data-aos="zoom-out" data-aos-delay="100">
+            <img src="https://i.imgur.com/4Rf8hz4.png" class="img-fluid" alt="Urządzenie RFID DOMINATOR z PCB, umieszczone w obudowie" title="Urządzenie RFID DOMINATOR z PCB, umieszczone w obudowie">
+<!---- class="img-fluid animated"--->
+          </div>
+
+          <div class="col-lg-6  d-flex flex-column justify-content-center" data-aos="fade-in">
+            <h2><span>RFID DOMINATOR</span>: Stoper dominacji dla Airsoft, Paintball</span></h2>
+<div class="d-flex">
+<a href="https://download-directory.github.io/?url=https%3A%2F%2Fgithub.com%2Fmartinius96%2FAirsoft-DOMINATOR-RFID%2Ftree%2Fmaster%2Ffirmware" class="btn btn-primary rounded-pill">DEMO Firmware</a>
+<a href="https://docs.google.com/spreadsheets/d/1EHpdJi8v84eJ-6ExEPT6JuPkxI9Tfbm8v85zGRFvJ1Q/edit?usp=sharing" class="btn btn-success rounded-pill">RFID UID Szablon</a>
+<a href="https://docs.google.com/spreadsheets/d/1W8VZWUbunXa362EOkEo4UkfGkRCt8anQDj8j90m_AIg/edit?usp=sharing" class="btn btn-info rounded-pill">Plik BOM</a>
+<a href="https://www.fiverr.com/martinius96/rfid-dominator-airsoft-firmware" class="btn btn-danger rounded-pill">Kup oprogramowanie układowe</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
+        <defs>
+          <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
+        </defs>
+        <g class="wave1">
+          <use xlink:href="#wave-path" x="50" y="3"></use>
+        </g>
+        <g class="wave2">
+          <use xlink:href="#wave-path" x="50" y="0"></use>
+        </g>
+        <g class="wave3">
+          <use xlink:href="#wave-path" x="50" y="9"></use>
+        </g>
+      </svg>
+
+    </section><!-- /Hero Section -->
+
+    <!-- About Section -->
+    <section id="about" class="about section">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row align-items-xl-center gy-5">
+
+          <div class="col-xl-5 content">
+          <h2>O RFID DOMINATOR – Airsoft Stoper</h2>
+<p style="text-align: justify;">
+<strong>RFID DOMINATOR</strong> to stoper stworzony do <strong>Airsoft</strong>, <strong>Paintball</strong>, który zwiększa wrażenia z gry i wprowadza uczciwość.
+Nadają się do trybu gry DOMINATOR, Capture the Point. DOMINATOR tworzy punkt, który jest zajmowany przez gracza drużyny. Urządzenie zawiera wyświetlacz LCD, który informuje o aktualnym czasie każdej drużyny.
+W tym samym czasie dioda LED sygnalizuje aktywną drużynę na punkcie. Gracz zajmuje punkt DOMINATOR, przyczepiając bransoletkę lub kartę RFID. Gdy punkt jest zajęty, rozlega się sygnał dźwiękowy, ogłaszający zmianę punktu.
+Czas drużyny jest liczony do momentu, aż gracz z innej drużyny przyczepi swój znacznik RFID lub do momentu zatrzymania czasu przez sędziego. Czas jest nadal liczony po zajęciu punktu. DOMINATOR zlicza całkowity czas zajmowany przez wszystkie drużyny w grze.
+Może być używany dla 2 lub 4 drużyn w jednej grze. Oprócz zatrzymania zegara, sędzia może również zresetować go przed nową grą.
+</p>
+          </div>
+
+          <div class="col-xl-7">
+            <div class="row gy-4 icon-boxes">
+
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="icon-box">
+                  <i class="bi bi-collection-play"></i>
+                 <h3>Scenariusze użycia</h3>
+<p style="text-align: justify;">Idealne na place zabaw, pola oferujące doświadczenie Airsoft / Paintball. Wydarzenia takie jak LARP, MilSim, Scenario, Speedball, ze względu na rozmiar flasha, który obsługuje setki tagów RFID w jednej aplikacji</p>
+</div>
+              </div> <!-- End Icon Box -->
+
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="icon-box">
+                  <i class="bi bi-clipboard-check"></i>
+                  <h3>Obsługiwany sprzęt</h3>
+<p style="text-align: justify;">Z płytką PCB RFID DOMINATOR 2.0 następujące komponenty są kompatybilne</p>
+<li>Arduino Nano V3.0</li>
+<li>MFRC522 Czytnik RFID-RC522</li>
+<li>LCD 2004A z konwerterem I2C</li>
+<li>Brzęczyk o rozstawie 7,62 mm</li>
+<li>Diody LED 5 mm THT</li>
+<li>Rezystory THT</li>
+            <!---      <li>RFID wristbands, cards of standard 14443-A</li>
+                  <li>10 mm base + 6 mm M3 thread Standoff Spacer Screws</li>
+                  <li>6 mm M3 Countersunk Flat-Head Screws, nuts</li> --->
+                </div>
+              </div> <!-- End Icon Box -->
+
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="icon-box">
+                  <i class="bi bi-cpu-fill"></i>
+                 <h3>WERSJA DEMO firmware</h3>
+<p style="text-align: justify;">RFID DOMINATOR oferuje bezpłatne oprogramowanie DEMO, które umożliwia przetestowanie urządzenia i jego podstawowych funkcji, jeśli jest prawidłowo podłączone, zgodnie ze schematami dostępnymi na stronie internetowej RFID DOMINATOR</p>
+</div>
+              </div> <!-- End Icon Box -->
+
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="icon-box">
+                  <i class="bi bi-windows"></i>
+                 <h3>Modułowa konstrukcja, przenośne oprogramowanie układowe</h3>
+<p style="text-align: justify;">
+Modułowa konstrukcja RFID DOMINATOR pozwala użytkownikowi na wymianę głównych komponentów bez konieczności lutowania czegokolwiek. Dzięki metodzie hot-swap może on wyjąć moduł i włożyć nowy w ciągu kilku sekund.
+<strong>Użytkownik może kopiować i klonować oprogramowanie układowe na dowolną liczbę swoich urządzeń.</strong> Zapłać licencję raz, używaj tyle razy, ile potrzebujesz dla swoich urządzeń.
+</p>
+                </div>
+              </div> <!-- End Icon Box -->
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section><!-- /About Section -->
+
+    <!-- Features Section -->
+    <section id="features" class="features section">
+
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="features-item">
+              <i class="bi bi-currency-exchange" style="color: #ffbb2c;"></i>
+              <h3>Przystępna cena</h3>
+</div>
+</div><!-- Koniec elementu funkcji -->
+
+<div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="200">
+<div class="features-item">
+<i class="bi bi-copy" style="color: #5578ff;"></i>
+<h3>Możliwość klonowania</h3>
+</div>
+</div><!-- Koniec elementu funkcji -->
+
+<div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="300">
+<div class="features-item">
+<i class="bi bi-file-check-fill" style="color: #e80368;"></i>
+<h3>Łatwy do użycia</h3>
+</div>
+</div><!-- Koniec elementu funkcji -->
+
+<div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="400">
+<div class="features-item">
+<i class="bi bi-cpu" style="color: #e361ff;"></i>
+<h3>Open-source przyjazny dla sprzętu</h3>
+</div>
+</div><!-- Koniec elementu funkcji -->
+
+<div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="500">
+<div class="features-item">
+<i class="bi bi-wifi" style="color: #47aeff;"></i>
+<h3>Włączone RFID</h3>
+</div>
+</div><!-- Koniec elementu funkcji -->
+
+<div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="600">
+<div class="features-item">
+<i class="bi bi-windows" style="color: #ffa76e;"></i>
+<h3>Konstrukcja modułowa</h3>
+</div>
+</div><!-- Koniec elementu funkcji -->
+
+<div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="700">
+<div class="features-item">
+<i class="bi bi-display" style="color: #11dbcf;"></i>
+<h3>Wyświetl wyjście</h3>
+</div>
+</div><!-- Koniec elementu funkcji -->
+
+<div class="col-lg-3 col-md-4" data-aos="fade-up" data-aos-delay="800">
+<div class="features-item">
+<i class="bi bi-info-circle" style="color: #4233ff;"></i>
+<h3>Pomoc i opinie</h3>
+</div>
+</div><!-- Koniec elementu funkcji -->
+
+        
+
+        </div>
+
+      </div>
+
+
+    </section><!-- /Features Section -->
+
+
+    <!-- Details Section -->
+    <section id="details" class="details section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Szczegóły</h2>
+<div><span>Sprawdź </span> <span class="description-title">RFID DOMINATOR</span></div>
+      </div><!-- End Section Title -->
+
+      <div class="container">
+        <div class="row gy-4 align-items-center features-item">
+          <div class="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+            <img src="https://i.imgur.com/IpLT6UE.jpeg" class="img-fluid" alt="PCB of RFID DOMINATOR 2.0 and RFID DOMINATOR 1.0. Comparsion of differences" title="PCB of RFID DOMINATOR 2.0 and RFID DOMINATOR 1.0. Comparsion of differences">
+          </div>
+          <div class="col-md-7 order-2 order-md-1" data-aos="fade-up" data-aos-delay="200">
+           <h3>PCB</h3>
+<p class="fst-italic">
+Specyfikacje PCB RFID DOMINATOR 2.0
+</p>
+<p>
+104 x 103 x 1,6 mm, dwustronna PCB typu FR4. Sitodruk na PCB oznacza położenie i orientację komponentów, sposób ich lutowania.
+</p>
+</div>
+</div><!-- Element funkcji -->
+
+<div class="row gy-4 align-items-center features-item">
+<div class="col-md-5 d-flex align-items-center" data-aos="zoom-out">
+<img src="https://i.imgur.com/Z5GXswT.png" class="img-fluid" alt="Sprzęt typu open source, moduły Arduino Arduino kompatybilne z PCB RFID DOMINATOR 2.0" title="Sprzęt typu open source, moduły Arduino Arduino kompatybilne z PCB RFID DOMINATOR 2.0">
+</div>
+<div class="col-md-7" data-aos="fade-up">
+<h3>Obsługa sprzętu typu open source</h3>
+<p class="fst-italic">
+Sprzęt zgodny ze sprzętem typu open source
+</p>
+<p>
+Sprzęt RFID DOMINATOR jest związany z wykorzystaniem sprzętu typu open source. Wykorzystuje moduły Arduino i samą płytkę Arduino do modułowej konstrukcji i zalet sprzętu typu open source (opłacalność, łatwość wymiany).
+</p>
+</div>
+</div><!-- Element funkcji -->
+
+<div class="row gy-4 align-items-center features-item">
+<div class="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+<img src="https://i.imgur.com/rH4EyGn.png" class="img-fluid" alt="Zmontowana płytka PCB RFID DOMINATOR 2.0" title="Zmontowana płytka PCB RFID DOMINATOR 2.0">
+</div>
+<div class="col-md-7 order-2 order-md-1" data-aos="fade-up" data-aos-delay="200">
+<h3>Zmontowana PCB</h3>
+<p class="fst-italic">
+Widok PCB po złożeniu z kompatybilnych komponentów
+</p>
+<p>
+Po złożeniu PCB RFID DOMINATOR 2.0 całkowita wysokość PCB została zwiększona do 45 mm. Na przedniej stronie znajduje się ekran LCD2004A i czytnik MFRC522, a także diody LED i brzęczyk.
+Z tyłu znajduje się kontroler Arduino Nano V3.0. Główne komponenty wykorzystują złącza pinowe.
+</p>
+</div>
+</div><!-- Element funkcji -->
+
+<div class="row gy-4 align-items-center features-item">
+<div class="col-md-5 d-flex align-items-center" data-aos="zoom-out">
+<img src="https://i.imgur.com/6q9MtJC.png" class="img-fluid" alt="Obudowa RFID DOMINATOR 2.0 z paskiem zaciskowym. Możliwość montażu na drzewie, rurze, ścianie." title="Obudowa RFID DOMINATOR 2.0 z paskiem zaciskowym. Możliwość montażu na drzewie, rurze, ścianie.">
+</div>
+<div class="col-md-7" data-aos="fade-up">
+<h3>Obudowa</h3>
+<p class="fst-italic">
+Obudowa drukowana w 3D dla RFID DOMINATOR 2.0
+</p>
+<p>Obudowa kompatybilna z PCB RFID DOMINATOR 2.0. Wymiary obudowy to 124 x 123 x 47 mm.
+Sama płytka PCB jest montowana od wewnątrz, na przedniej stronie obudowy za pomocą 4 śrub M3.
+Można użyć paska ściągającego o szerokości 25 mm na obudowie, aby zamontować ją na drzewie, belce.</p>
+</div>
+</div><!-- Element cech -->
+
+<div class="row gy-4 align-items-center features-item">
+<div class="col-md-5 order-1 order-md-2 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="200">
+<img src="https://martinius96.github.io/Airsoft-DOMINATOR-RFID/assets/img/portfolio/fullsize/8.png" class="img-fluid" alt="Schematy, schematy połączeń dla sprzętu RFID DOMINATOR 2.0" title="Schematy, schematy połączeń dla sprzętu RFID DOMINATOR 2.0">
+</div>
+<div class="col-md-7 order-2 order-md-1" data-aos="fade-up" data-aos-delay="200">
+<h3>Schemat połączeń</h3>
+<p class="fst-italic">
+Schemat połączeń dla RFID DOMINATOR 2.0
+</p>
+<p>
+Schemat połączeń pokazuje, jak Arduino Nano jest połączone ze wszystkimi innymi komponentami. W przypadku LCD2004A zastosowano magistralę I2C okablowaną sprzętowo, a w przypadku MFRC522 magistralę SPI. Dodatkowe GPIO są używane do wskazań diod LED i do brzęczyka z obsługą PWM.
+</p>
+</div>
+</div><!-- Element funkcji -->
+
+
+
+
+
+
+      </div>
+
+    </section><!-- /Details Section -->
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="gallery section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+       <h2>Galeria</h2>
+<div><span>Sprawdź naszą</span> <span class="description-title">Galerię</span></div>
+      </div><!-- End Section Title -->
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="row g-0">
+
+          <div class="col-lg-3 col-md-3">
+            <div class="gallery-item">
+              <a href="https://i.imgur.com/wCTyfvC.jpeg" class="glightbox" data-gallery="images-gallery">
+                <img src="https://i.imgur.com/wCTyfvC.jpeg" alt="RFID DOMINATOR 2.0 - Urządzenie w pełni zmontowane, zamontowane na kołku" title="RFID DOMINATOR 2.0 - Urządzenie w pełni zmontowane, zamontowane na kołku" class="img-fluid">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+
+          <div class="col-lg-3 col-md-3">
+            <div class="gallery-item">
+              <a href="https://martinius96.github.io/Airsoft-DOMINATOR-RFID/assets/img/portfolio/fullsize/9.jpg" class="glightbox" data-gallery="images-gallery">
+                <img src="https://martinius96.github.io/Airsoft-DOMINATOR-RFID/assets/img/portfolio/fullsize/9.jpg" alt="RFID DOMINATOR 2.0 - W pełni zmontowana płytka PCB ze zgodnymi kartami RFID w pobliżu" title="RFID DOMINATOR 2.0 - W pełni zmontowana płytka PCB ze zgodnymi kartami RFID w pobliżu" class="img-fluid"></a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+          <div class="col-lg-3 col-md-3">
+            <div class="gallery-item">
+              <a href="https://martinius96.github.io/Airsoft-DOMINATOR-RFID/assets/img/portfolio/fullsize/5.jpg" class="glightbox" data-gallery="images-gallery">
+                <img src="https://martinius96.github.io/Airsoft-DOMINATOR-RFID/assets/img/portfolio/fullsize/5.jpg" alt="RFID DOMINATOR 2.0 - W pełni zmontowana płytka PCB, bez aktywnego zespołu" title="RFID DOMINATOR 2.0 - W pełni zmontowana płytka PCB, bez aktywnego zespołu" class="img-fluid">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+          <div class="col-lg-3 col-md-3">
+            <div class="gallery-item">
+              <a href="https://martinius96.github.io/Airsoft-DOMINATOR-RFID/assets/img/portfolio/fullsize/2.jpg" class="glightbox" data-gallery="images-gallery">
+                <img src="https://martinius96.github.io/Airsoft-DOMINATOR-RFID/assets/img/portfolio/fullsize/2.jpg"alt="RFID DOMINATOR 2.0 - Tylna strona płytki PCB, zmontowany Arduino Nano V3.0" title="RFID DOMINATOR 2.0 - Tylna strona płytki PCB, zmontowany Arduino Nano V3.0" class="img-fluid">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+          <div class="col-lg-3 col-md-3">
+            <div class="gallery-item">
+              <a href="https://martinius96.github.io/Airsoft-DOMINATOR-RFID/assets/img/portfolio/fullsize/8.png" class="glightbox" data-gallery="images-gallery">
+                <img src="https://martinius96.github.io/Airsoft-DOMINATOR-RFID/assets/img/portfolio/fullsize/8.png" alt="RFID DOMINATOR 2.0 - Schemat połączeń" title="RFID DOMINATOR 2.0 - Schemat połączeń" class="img-fluid">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+          <div class="col-lg-3 col-md-3">
+            <div class="gallery-item">
+              <a href="https://i.imgur.com/GuyykYs.pngg" class="glightbox" data-gallery="images-gallery">
+                <img src="https://i.imgur.com/GuyykYs.png" alt="RFID DOMINATOR 2.0 - Obudowa w formacie .stl, widok z góry" title= "RFID DOMINATOR 2.0 - Obudowa w formacie .stl, widok z góry" class="img-fluid">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+          <div class="col-lg-3 col-md-3">
+            <div class="gallery-item">
+              <a href="https://i.imgur.com/uxSSbxo.png" class="glightbox" data-gallery="images-gallery">
+                <img src="https://i.imgur.com/uxSSbxo.png" alt="RFID DOMINATOR 2.0 - Obudowa w formacie .stl, dolna pokrywa" title="RFID DOMINATOR 2.0 - Obudowa w formacie .stl, dolna pokrywa" class="img-fluid">
+</a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+          <div class="col-lg-3 col-md-3">
+            <div class="gallery-item">
+              <a href="https://i.imgur.com/DT6L4eL.png" class="glightbox" data-gallery="images-gallery">
+                <img src="https://i.imgur.com/DT6L4eL.png" alt="RFID DOMINATOR 2.0 - widok wnętrza, widok obudowy z przodu" class="img-fluid">
+              </a>
+            </div>
+          </div><!-- End Gallery Item -->
+
+
+        </div>
+
+      </div>
+
+    </section><!-- /Gallery Section -->
+
+   
+
+   
+
+
+    <!-- Faq Section -->
+    <section id="faq" class="faq section light-background">
+
+      <div class="container-fluid">
+
+        <div class="row gy-4">
+
+          <div class="col-lg-7 d-flex flex-column justify-content-center order-2 order-lg-1">
+
+            <div class="content px-xl-5" data-aos="fade-up" data-aos-delay="100">
+<h3><span>Często zadawane</span> <strong>Pytania</strong></h3>
+<p>
+Poniżej znajdują się najczęściej zadawane pytania od naszej społeczności.
+</p>
+</div>
+
+<div class="faq-container px-xl-5" data-aos="fade-up" data-aos-delay="200">
+
+<div class="faq-item faq-active">
+<i class="faq-icon bi bi-question-circle"></i>
+<h3>Jakie jest zużycie energii przez system?</h3>
+<div class="faq-content">
+<p>
+System zazwyczaj zużywa 40–60 mAh przy 5 V, co odpowiada 0,2–0,3 W. Źródło zasilania o pojemności 2000 mAh może zasilać system przez 30–35 godzin, w zależności od obciążenia.
+</p>
+</div>
+
+<i class="faq-toggle bi bi-chevron-right"></i>
+</div><!-- End Faq item-->
+
+<div class="faq-item">
+<i class="faq-icon bi bi-question-circle"></i>
+<h3>Czy mogę zasilać go za pomocą powerbanku?</h3>
+<div class="faq-content">
+<p>
+Tak, RFID DOMINATOR może być zasilany bezpośrednio za pomocą powerbanku przez jego wyjście 5 V. RFID DOMINATOR wymaga złącza MiniUSB, mogą być również dostępne wersje Arduino Nano ze złączem microUSB.
+</p>
+</div>
+
+<i class="faq-toggle bi bi-chevron-right"></i>
+</div><!-- End Faq item-->
+
+<div class="faq-item">
+<i class="faq-icon bi bi-question-circle"></i>
+<h3>Jak mogę przesłać oprogramowanie układowe?</h3>
+<div class="faq-content">
+<p>
+Niezależnie od tego, czy jest to oprogramowanie układowe DEMO czy FINAL, użyj dostarczonego pliku .hex zgodnego z Arduino.
+Prześlij je za pomocą narzędzia XLoader. W przypadku Arduino Nano ze starym bootloaderem ustaw prędkość na 57600 bodów/s, w przypadku nowego bootloadera użyj 115200 bodów/s.
+Pomyślne przesłanie jest potwierdzane komunikatem z XLoadera, który może poinformować Cię o nieudanym procesie przesyłania.
+</p>
+</div>
+
+<i class="faq-toggle bi bi-chevron-right"></i>
+</div><!-- Koniec elementu FAQ-->
+
+<div class="faq-item">
+<i class="faq-icon bi bi-question-circle"></i>
+<h3>Jak skopiować istniejące oprogramowanie układowe?</h3>
+<div class="faq-content">
+<p>
+Po prostu prześlij ten sam plik oprogramowania układowego (.hex), który otrzymałeś e-mailem, do swojego kolejnego urządzenia RFID DOMINATOR.
+Będzie ono działać w ten sam sposób i będzie reagować na te same opaski i karty RFID.
+Nie ma ograniczeń co do liczby klonów, które możesz utworzyć, to zależy od Ciebie.
+</p>
+</div>
+
+<i class="faq-toggle bi bi-chevron-right"></i>
+</div><!-- Koniec elementu FAQ-->
+
+            <div class="faq-item">
+<i class="faq-icon bi bi-question-circle"></i>
+<h3>Czy można zmienić nazwę zespołu?</h3>
+<div class="faq-content">
+<p>Na razie nie, ale wkrótce będzie to możliwe, gdy rozszerzenie poleceń AT zostanie ukończone. Nazwy zespołów muszą mieć maksymalnie 3 litery (oprogramowanie będzie tego ograniczać).</p>
+</div>
+<i class="faq-toggle bi bi-chevron-right"></i>
+</div><!-- End Faq item-->
+
+<div class="faq-item">
+<i class="faq-icon bi bi-question-circle"></i>
+<h3>Czy DOMINATOR może być używany na zewnątrz?</h3>
+<div class="faq-content">
+<p>DOMINATOR nie ma wodoodpornej obudowy. Jeśli jest sucho, można go używać również na zewnątrz. Głównie w pomieszczeniach lub pod zadaszeniem.</p>
+</div>
+<i class="faq-toggle bi bi-chevron-right"></i>
+</div><!-- End Faq item-->
+
+<div class="faq-item">
+<i class="faq-icon bi bi-question-circle"></i>
+<h3>W jakiej formie dostępny jest DOMINATOR?</h3>
+<div class="faq-content">
+<p>DOMINATOR jest dostępny jako firmware (na całym świecie) lub jako urządzenie fizyczne w formie zestawu DIY (tylko w Europie), który można samodzielnie zmontować. Możesz również utworzyć własny program, jeśli nie chcesz niestandardowej implementacji programu RFID DOMINATOR.</p>
+</div>
+<i class="faq-toggle bi bi-chevron-right"></i>
+</div><!-- Koniec elementu FAQ-->
+
+</div>
+
+</div>
+
+<div class="col-lg-5 order-1 order-lg-2">
+<img src="https://i.imgur.com/xv3VkHS.jpeg" class="img-fluid" alt="Często zadawane pytania dotyczące urządzenia RFID DOMINATOR 2.0 odpowiedniego do użytku w grach Airsoft i Paintball" title="Często zadawane pytania dotyczące urządzenia RFID DOMINATOR 2.0 odpowiedniego do użytku w grach Airsoft i Paintball" data-aos="zoom-in" data-aos-delay="100">
+</div>
+</div>
+
+</div>
+
+    </section><!-- /Faq Section -->
+
+    
+  </main>
+
+  <footer id="footer" class="footer dark-background">
+
+    <div class="container footer-top">
+      <div class="row gy-4">
+        <div class="col-lg-4 col-md-6 footer-about">
+         <a href="index.html" class="logo d-flex align-items-center">
+<span class="sitename">RFID DOMINATOR by <img src="https://i.imgur.com/ibpLxAB.png" alt="Twój IoT w zasięgu ręki"></span>
+</a>
+<div class="footer-contact pt-3">
+<p>Słowacja, SK Europa</p>
+<p><strong>E-mail:</strong> <span>martin.ch.youriot (at) gmail.com</span></p>
+</div>
+<div class="social-links d-flex mt-4">
+<a href="https://www.facebook.com/your.iot.systems"><i class="bi bi-facebook"></i></a>
+<a href="https://www.youtube.com/@Your-IoT-w4b"><i class="bi bi-youtube"></i></a>
+</div>
+</div>
+
+<div class="col-lg-2 col-md-3 footer-links">
+<h4>Inne projekty</h4>
+<ul>
+<li><a href="https://your-iot.github.io/Watmonitor/">Watmonitor</a></li>
+<li><a href="https://martinius96.github.io/WiFi-termostat/en/">Termostat WiFi</a></li>
+<li><a href="https://martinius96.github.io/termostat-ethernet/en/">Termostat Ethernet Arduino</a></li>
+<li><a href="https://martinius96.github.io/termostat-ethernet/pl/phy_ethernet.html">Termostat Ethernet ESP32 + PHY</a></li>
+</ul>
+        </div>
+
+        <div class="col-lg-2 col-md-3 footer-links">
+         <h4>Dokumentacja</h4>
+<ul>
+<li><a href="https://docs.google.com/document/d/1g2Yf4w7TaYVXNwZDXHiWI_OSRB18HtfPuwLXNDS7aSY/edit?usp=sharing">INSTRUKCJA RFID DOMINATOR</a></li>
+<li><a href="https://martinius96.github.io/Airsoft-DOMINATOR-RFID/assets/img/portfolio/fullsize/8.png">Schematy</a></li>        
+          </ul>
+        </div>
+
+
+      </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+      <p>© <span>Copyright</span> <strong class="px-1 sitename">Bootslander</strong> <span>All Rights Reserved</span></p>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you've purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a> Distributed By <a href="https://themewagon.com">ThemeWagon</a>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- Scroll Top -->
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="../assets/vendor/aos/aos.js"></script>
+  <script src="../assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="../assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="../assets/js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,42 +1,40 @@
-# RFID DOMINATOR: Revolutionizing Competitive Gameplay
+# DOMINATOR
 
-The RFID DOMINATOR is an advanced domination stopwatch designed for Airsoft, Paintball, and other competitive sports, enhancing strategy and engagement in every match. This device features an onboard display that tracks the total occupation time of a control point, making it indispensable for organized events and team-based competitions.
+The DOMINATOR is a control-point timer for team-based games such as Airsoft, Paintball, and other competitive scenarios. It tracks the occupation time of a control point and helps organize matches efficiently. The device can be configured with **RFID control** or **mechanical buttons**.  
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/a75b08ce-54af-4ba3-a628-6035e7bd6caa" />
 
 ## Features
 
-- **RFID Technology**: Players can effortlessly claim control by tapping their RFID wristband or card on the device. The stopwatch beeps to indicate a team change, and the timer continues counting for the active team until an opposing player claims the point or a referee pauses the game.
+- **RFID Control**: Players capture a point by tapping an RFID wristband or card. The device beeps to indicate a team change, and the timer continues for the active team.  
+- **Mechanical Control**: Alternative version with pushbuttons (requires removing the RFID reader or 2 LED diodes).  
+- **Multi-Team Support**: Standard setup for 2 teams, expandable up to 4 teams.  
+- **Modular Design**: Components can be replaced without soldering.  
+- **Open-Source Hardware**: Built on Arduino, making components affordable and replaceable.  
+- **Display**: LCD2004A (I2C) for clear point and team information.  
 
-- **Versatility**: Supports standard matches with two teams and can be expanded to accommodate up to four teams in a single competition.
+## Use Cases
+- Airsoft and Paintball fields  
+- LARP, MilSim, Scenario games  
+- Speedball and other team events  
 
-- **Modular Design**: Allows users to replace main components without soldering, enabling quick swaps and easy maintenance.
-
-- **Open-Source Hardware**: Compatible with Arduino modules, offering cost-effective and easily replaceable components.
-
-- **Display Output**: Equipped with an LCD2004A screen for clear and concise information display.
-
-## Usage Scenarios
-
-Ideal for playgrounds, fields offering Airsoft/Paintball experiences, and events such as LARP, MilSim, Scenario, and Speedball. The device's flash size supports hundreds of RFID tags in a single application.
+Supports hundreds of RFID tags for single-event use.  
 
 ## Supported Hardware
+- Arduino Nano V3.0  
+- MFRC522 RFID-RC522 Reader or Pushbuttons  
+- LCD2004A with I2C interface  
+- Buzzer (7.62 mm pitch)  
+- 5mm LED diodes (THT)  
+- THT Resistors  
+<img width="3264" height="2458" alt="image" src="https://github.com/user-attachments/assets/5ce5af5f-84d9-4515-8892-95f013bd4caa" />
 
-The RFID DOMINATOR 2.0 PCB is compatible with:
-- Arduino Nano V3.0
-- MFRC522 RFID-RC522 Reader
-- LCD2004A with I2C Converter
-- Buzzer with 7.62 mm Pitch
-- 5mm LED Diodes THT
-- Resistors THT
+## Documentation & Resources
 
-## Documentation and Resources
+- **Demo Firmware**: Test basic functionality of the device.  
+- **Wiring Diagram**: Full hardware connection schematics.  
+- **Gallery**: Images of the device and its components.  
 
-- **DEMO Firmware**: Free-to-use firmware to test the device's basic functions.
-- **Wiring Diagram**: Detailed schematics for hardware connections.
-- **Gallery**: Visuals of the device and its components.
+## Support
 
-## Support and Feedback
-
-For support or to provide feedback, please visit our [GitHub repository](https://github.com/your-iot/DOMINATOR)
-
-
-Enhance your competitive edge and redefine the way you play with the RFID DOMINATOR!
+For questions or feedback, visit the [GitHub repository](https://github.com/your-iot/DOMINATOR).
+Or contact directly at: martin.ch.youriot (at) gmail.com
